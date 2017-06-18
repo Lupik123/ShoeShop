@@ -1,0 +1,53 @@
+﻿<Page x:Class="ShoeShop.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShoeShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Registration"
+      Background="White">
+
+    <StackPanel>
+        <!-- header -->
+        <Border BorderBrush="#FF8492A6" BorderThickness="0,0,0,2" Height="70" Background="Black" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="183*"></ColumnDefinition>
+                    <ColumnDefinition Width="263*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Border Background="#FF8492A6" Height="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,17"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                    <Button Content="Home" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button x:Name="men" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
+                    <Button x:Name="women_button" Click="women_Click" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="contact_button" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+
+                <Button Content="Add user" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" Height="35" Width="100" FontSize="22" Cursor="Hand" Margin="0,0,68,0"/>
+
+            </Grid>
+        </Border>
+        <!-- header -->
+
+
+        <TextBlock TextWrapping="Wrap" Text="First name" Height="35" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,75,0,0"/>
+        <TextBox x:Name="fName"  Height="35" TextWrapping="Wrap" HorizontalAlignment="Center" Width="150" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" BorderBrush="Black"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Last name" Height="35" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <TextBox x:Name="lName" Height="35" TextWrapping="Wrap" HorizontalAlignment="Center" Width="150" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" BorderBrush="Black"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Email" Height="35" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <TextBox x:Name="email" Height="35" TextWrapping="Wrap" HorizontalAlignment="Center" Width="150" VerticalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" BorderBrush="Black"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Date of birth(DD/MM/YYYY)" Height="35" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <TextBox x:Name="birth" Height="35" TextWrapping="Wrap" HorizontalAlignment="Center" Width="150" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="20" BorderBrush="Black"/>
+        
+
+    </StackPanel>
+</Page>
