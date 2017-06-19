@@ -20,25 +20,92 @@ namespace ShoeShop
     /// </summary>
     public partial class OrderPage : Page
     {
-        public OrderPage()
+        Shoes shoes = new Shoes();
+        Order order;
+        User user;
+        int index;
+        int imp;
+
+        public OrderPage(int shoeId)
         {
             InitializeComponent();
+
+            imp = shoeId;
+
+
+            ShowData();
         }
 
-        private void men_Click(object sender, RoutedEventArgs e)
+        private static UserDatabase _database;
+
+        public static UserDatabase Database
         {
-            App.Current.MainWindow.Content = new MenPage();
+            get
+            {
+                if (_database == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _database = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _database;
+            }
         }
 
-        private void women_Click(object sender, RoutedEventArgs e)
+        private static ShoesDatabase _sh;
+
+        public static ShoesDatabase SH
         {
-            App.Current.MainWindow.Content = new WomenPage();
+            get
+            {
+                if (_sh == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _sh = new ShoesDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _sh;
+            }
         }
 
-        private void contact_Click(object sender, RoutedEventArgs e)
+        private static OrderDatabase _ord;
+
+        public static OrderDatabase ORD
         {
-            App.Current.MainWindow.Content = new ContactPage();
+            get
+            {
+                if (_ord == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _ord = new OrderDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _ord;
+            }
         }
+
+
+        private void ShowData()
+        {
+            List<User> items = new List<User>();
+
+            var itemsFromDb = Database.GetItemsAsync().Result;
+            foreach (User user in itemsFromDb)
+            {
+                items.Add(new User() { ID = user.ID, Name = user.Name});
+            }
+
+            cmb.ItemsSource = items;
+
+            List<Order> items2 = new List<Order>();
+
+            var itemsFromDb2 = ORD.GetItemsAsync().Result;
+            foreach (Order order in itemsFromDb2)
+            {
+                items2.Add(new Order() { ID = order.ID, UserID = order.UserID, ShoesID = order.ShoesID });
+            }
+
+            list.ItemsSource = items2;
+        }
+
+
 
         private void home_Click(object sender, RoutedEventArgs e)
         {
@@ -48,6 +115,31 @@ namespace ShoeShop
         private void addU_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.Content = new Registration();
+        }
+
+        private void order_Click(object sender, RoutedEventArgs e)
+        {
+            list.SelectedIndex = index;
+            user = list.SelectedItem as User;
+
+            order = new Order();
+            order.ShoesID = imp;
+            order.UserID = user.ID;
+
+
+
+            ORD.SaveItemAsync(order);
+
+        }
+
+        private void cmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (list.SelectedItem != null)
+            {
+                user = list.SelectedItem as User;
+                index = list.SelectedIndex;
+
+            }
         }
     }
 }

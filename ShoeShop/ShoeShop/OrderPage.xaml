@@ -24,15 +24,75 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" >
                     <Button Content="Home" Click="home_Click" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}"/>
-                    <Button x:Name="men" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"  />
-                    <Button x:Name="women_button" Click="women_Click" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="contact_button" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </StackPanel>
 
                 <Button x:Name="addU" Content="Add user" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" Height="35" Width="100" FontSize="22" Click="addU_Click" Cursor="Hand" Margin="0,0,68,0"/>
 
             </Grid>
         </Border>
+
         <!-- header -->
+        <Grid Height="525">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="71*"></ColumnDefinition>
+                <ColumnDefinition Width="229*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Margin="52,46,53,0" Text="Choose user" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Height="27" Width="108"/>
+            <Button x:Name="mkorder" Click="order_Click" Content="Order" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="78,125,79,0" VerticalAlignment="Top" Height="31" Width="56"/>
+            <ComboBox Name="cmb" HorizontalAlignment="Center" SelectionChanged="cmb_SelectionChanged" Margin="20,78,23,0" Width="170" Height="35" VerticalAlignment="Top">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ID}" FontSize="20" />
+                            <TextBlock Text="{Binding Name}" FontSize="20" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <ListBox Grid.Column="1" Margin="0,0,0,480">
+                <ListBoxItem>
+                    <Grid Width="559">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <TextBlock Text="ID" FontSize="20" />
+                        <TextBlock Text="User" FontSize="20" Grid.Column="1"/>
+                        <TextBlock Text="Product" FontSize="20" Grid.Column="2"/>
+                        <TextBlock Text="Price" FontSize="20" Grid.Column="3"/>
+                        <Border Background="Black" Height="2" Grid.ColumnSpan="4" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </ListBoxItem>
+            </ListBox>
+
+            <ListBox Name="list" Grid.Column="1" HorizontalContentAlignment="Stretch" Margin="0,35,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <TextBlock Text="{Binding ID}" FontSize="20"/>
+                            <TextBlock Text="{Binding UserID}" FontSize="20" Grid.Column="1"/>
+                            <TextBlock Text="{Binding ShoesID}" FontSize="20" Grid.Column="2"/>
+                            <!--<TextBlock Text="{Binding Price}" FontSize="20" Grid.Column="3"/>-->
+                            <Border Background="Black" Height="2" Grid.ColumnSpan="4" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </StackPanel>
 </Page>

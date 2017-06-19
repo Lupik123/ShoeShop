@@ -27,21 +27,9 @@ namespace ShoeShop
             PageH();
         }
 
-        public void PageM()
-        {
-            _mainFrame.Navigate(new MenPage());
-        }
         public void PageH()
         {
             _mainFrame.Navigate(new Homepage());
-        }
-        public void PageW()
-        {
-            _mainFrame.Navigate(new WomenPage());
-        }
-        public void PageC()
-        {
-            _mainFrame.Navigate(new ContactPage());
         }
     }
 }

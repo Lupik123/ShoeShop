@@ -91,13 +91,15 @@ namespace ShoeShop
 
             listMen.ItemsSource = items;
 
+            List<Shoes> items2 = new List<Shoes>();
+
             var itemsFromDb2 = SH.GetItemsCategory("Women").Result;
             foreach (Shoes shoes in itemsFromDb2)
             {
-                items.Add(new Shoes() { Name = shoes.Name, Brand = shoes.Brand, Size = shoes.Size, Price = shoes.Price });
+                items2.Add(new Shoes() { Name = shoes.Name, Brand = shoes.Brand, Size = shoes.Size, Price = shoes.Price });
             }
 
-            listWomen.ItemsSource = items;
+            listWomen.ItemsSource = items2;
 
 
         }
@@ -112,20 +114,6 @@ namespace ShoeShop
 
 
         //navigace
-        private void men_Click(object sender, RoutedEventArgs e)
-        {
-            App.Current.MainWindow.Content = new MenPage();
-        }
-
-        private void women_Click(object sender, RoutedEventArgs e)
-        {
-            App.Current.MainWindow.Content = new WomenPage();
-        }
-
-        private void contact_Click(object sender, RoutedEventArgs e)
-        {
-            App.Current.MainWindow.Content = new ContactPage();
-        }
 
         private void addU_Click(object sender, RoutedEventArgs e)
         {
@@ -135,6 +123,36 @@ namespace ShoeShop
         private void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void listMen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listMen.SelectedItem != null)
+            {
+                shoes = listMen.SelectedItem as Shoes;
+                index = listMen.SelectedIndex;
+
+                cart.IsEnabled = true;
+            }
+        }
+
+        private void listWomen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listWomen.SelectedItem != null)
+            {
+                shoes = listWomen.SelectedItem as Shoes;
+                index = listWomen.SelectedIndex;
+
+                cart.IsEnabled = true;
+            }
+        }
+
+        private void cart_Click(object sender, RoutedEventArgs e)
+        {
+            listMen.SelectedIndex = index;
+            shoes = listMen.SelectedItem as Shoes;
+
+            App.Current.MainWindow.Content = new OrderPage(shoes.ID);
         }
     }
 }

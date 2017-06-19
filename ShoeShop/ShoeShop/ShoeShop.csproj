@@ -77,15 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ContactPage.xaml.cs">
-      <DependentUpon>ContactPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FileHelper.cs" />
     <Compile Include="Homepage.xaml.cs">
       <DependentUpon>Homepage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MenPage.xaml.cs">
-      <DependentUpon>MenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrderDatabase.cs" />
@@ -99,13 +93,6 @@
     <Compile Include="ShoesDatabase.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDatabase.cs" />
-    <Compile Include="WomenPage.xaml.cs">
-      <DependentUpon>WomenPage.xaml</DependentUpon>
-    </Compile>
-    <Page Include="ContactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Homepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,19 +109,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WomenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

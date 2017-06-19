@@ -24,9 +24,6 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Column="1" >
                     <Button Content="Home" Click="home_Click" FontSize="30" Cursor="Hand" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
-                    <Button x:Name="men" Click="men_Click" Cursor="Hand" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
-                    <Button x:Name="women_button" Click="women_Click" Cursor="Hand" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="contact_button" Click="contact_Click" Cursor="Hand" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </StackPanel>
 
 
