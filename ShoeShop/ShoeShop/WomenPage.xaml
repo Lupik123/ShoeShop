@@ -20,15 +20,16 @@
 
                 <Border Background="#FF8492A6" Height="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,17"/>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" >
-                    <TextBlock Text="Home" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                    <TextBlock Text="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0"/>
+                    <Button Content="Home" Click="home_Click" Cursor="Hand" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button x:Name="men" Cursor="Hand" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
                     <Border Margin="20,0,0,0" Background="#FF8492A6">
                         <TextBlock Text="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Padding="20,0,20,0" />
                     </Border>
-                    
-                    <TextBlock Text="Contact" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                </StackPanel>
 
+                    <Button x:Name="contact_button" Cursor="Hand" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+
+                </StackPanel>
+                <Button x:Name="addU" Content="Add user" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" Height="35" Width="100" FontSize="22" Click="addU_Click" Cursor="Hand" Margin="0,0,68,0"/>
             </Grid>
         </Border>
         <!-- header -->

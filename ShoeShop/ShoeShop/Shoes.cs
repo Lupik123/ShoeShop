@@ -15,5 +15,7 @@ namespace ShoeShop
         public string Brand { get; set; }
         public int Size { get; set; }
         public string Category { get; set; }
+        public int Price { get; set; }
+        public string Image { get; set; }
     }
 }

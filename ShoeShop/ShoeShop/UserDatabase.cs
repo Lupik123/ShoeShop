@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShoeShop
 {
-    public class PersonDatabase
+    public class UserDatabase
     {
         private SQLiteAsyncConnection database;
 
-        public PersonDatabase(string dbPath)
+        public UserDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<User>().Wait();

@@ -20,22 +20,119 @@ namespace ShoeShop
     /// </summary>
     public partial class Homepage : Page
     {
+        Shoes shoes;
+        int index;
+        Random rnd = new Random();
+
         public Homepage()
         {
             InitializeComponent();
+
+            ShowData();
+            /*for(int i = 1; i < 10; i++)
+            {
+                int price = rnd.Next(1200, 2500);
+                int size = rnd.Next(40, 47);
+                shoes = new Shoes();
+                shoes.Name = "Shoes" + i;
+                shoes.Brand = "Nike";
+                shoes.Category = "Men";
+                shoes.Size = size;
+                shoes.Price = price;
+
+                //SH.SaveItemAsync(shoes);
+            }*/
+
+            //text.Text = SH.GetItemsAsync().Result.Count.ToString();
+
+
+
         }
 
+        private static UserDatabase _database;
+
+        public static UserDatabase Database
+        {
+            get
+            {
+                if (_database == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _database = new UserDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _database;
+            }
+        }
+
+        private static ShoesDatabase _sh;
+
+        public static ShoesDatabase SH
+        {
+            get
+            {
+                if (_sh == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _sh = new ShoesDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _sh;
+            }
+        }
+
+        private void ShowData()
+        {
+            List<Shoes> items = new List<Shoes>();
+
+            var itemsFromDb = SH.GetItemsCategory("Men").Result;
+            foreach (Shoes shoes in itemsFromDb)
+            {
+                items.Add(new Shoes() { Name = shoes.Name, Brand = shoes.Brand, Size = shoes.Size, Price = shoes.Price });
+            }
+
+            listMen.ItemsSource = items;
+
+            var itemsFromDb2 = SH.GetItemsCategory("Women").Result;
+            foreach (Shoes shoes in itemsFromDb2)
+            {
+                items.Add(new Shoes() { Name = shoes.Name, Brand = shoes.Brand, Size = shoes.Size, Price = shoes.Price });
+            }
+
+            listWomen.ItemsSource = items;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+        //navigace
         private void men_Click(object sender, RoutedEventArgs e)
         {
-            //_mainFrame.Navigate(new MenPage());
+            App.Current.MainWindow.Content = new MenPage();
         }
 
         private void women_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Current.MainWindow.Content = new WomenPage();
         }
 
         private void contact_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new ContactPage();
+        }
+
+        private void addU_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new Registration();
+        }
+
+        private void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

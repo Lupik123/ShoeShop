@@ -9,7 +9,30 @@
       Title="OrderPage"
       Background="White">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <!-- header -->
+        <Border BorderBrush="#FF8492A6" BorderThickness="0,0,0,2" Height="70" Background="Black" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="183*"></ColumnDefinition>
+                    <ColumnDefinition Width="263*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Border Background="#FF8492A6" Height="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,17"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                    <Button Content="Home" Click="home_Click" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button x:Name="men" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"  />
+                    <Button x:Name="women_button" Click="women_Click" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="contact_button" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+
+                <Button x:Name="addU" Content="Add user" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" Height="35" Width="100" FontSize="22" Click="addU_Click" Cursor="Hand" Margin="0,0,68,0"/>
+
+            </Grid>
+        </Border>
+        <!-- header -->
+    </StackPanel>
 </Page>

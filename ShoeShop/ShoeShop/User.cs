@@ -13,6 +13,6 @@ namespace ShoeShop
         public int ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public string DateBirth { get; set; }
+        public string BirthDate { get; set; }
     }
 }

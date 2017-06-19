@@ -80,6 +80,7 @@
     <Compile Include="ContactPage.xaml.cs">
       <DependentUpon>ContactPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileHelper.cs" />
     <Compile Include="Homepage.xaml.cs">
       <DependentUpon>Homepage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +88,7 @@
       <DependentUpon>MenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDatabase.cs" />
     <Compile Include="OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
@@ -94,6 +96,7 @@
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shoes.cs" />
+    <Compile Include="ShoesDatabase.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDatabase.cs" />
     <Compile Include="WomenPage.xaml.cs">
@@ -162,6 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bota.jpg" />
+    <Resource Include="Images\ShoppingCart-white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.5\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.5\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />

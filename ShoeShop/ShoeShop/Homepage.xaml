@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ShoeShop"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="680" d:DesignWidth="900"
       Title="Homepage"
       Background="White">
 
@@ -23,20 +23,75 @@
                     <Border Background="#FF8492A6">
                         <TextBlock Text="Home" FontSize="30" Foreground="White" VerticalAlignment="Center" Padding="15,0,20,0"/>
                     </Border>
-                    <Button x:Name="men" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
+                    <Button x:Name="men" Cursor="Hand" Click="men_Click" Content="Men" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
 
-                    <Button x:Name="women_button" Click="women_Click" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="contact_button" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="women" Cursor="Hand" Click="women_Click" Content="Women" FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="contact" Cursor="Hand" Click="contact_Click" Content="Contact"  FontSize="30" Foreground="White" VerticalAlignment="Center" Margin="40,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </StackPanel>
-
+                <Button x:Name="addU" Content="Add user" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" Height="35" Width="100" FontSize="22" Click="addU_Click" Cursor="Hand" Margin="0,0,68,0"/>
             </Grid>
         </Border>
         <!-- header -->
 
+        <Grid Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Grid>
+            <TextBlock Text="Men" FontSize="30" HorizontalAlignment="Center"/>
+            <TextBlock Text="Women" FontSize="30" Grid.Column="1" HorizontalAlignment="Center"/>
+        </Grid>
+        
+        <Grid Height="570">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ListBox Name="listMen" Width="300" Grid.Column="0" HorizontalContentAlignment="Stretch" Margin="0,0,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="250">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="6*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="Images/bota.jpg"/>
+                            <TextBlock Text="{Binding Brand}" FontSize="20" Grid.Row="1" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Name}" FontSize="20" Grid.Row="1" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Size}" FontSize="20" Grid.Row="2" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Price}" FontSize="20" Grid.Row="2" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox Name="listWomen" Width="300" Grid.Column="1" HorizontalContentAlignment="Stretch" Margin="0,0,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="250">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="6*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="Images/bota.jpg"/>
+                            <TextBlock Text="{Binding Brand}" FontSize="20" Grid.Row="1" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Name}" FontSize="20" Grid.Row="1" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Size}" FontSize="20" Grid.Row="2" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Price}" FontSize="20" Grid.Row="2" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
         </Grid>
+        <!--<TextBlock x:Name="text" TextWrapping="Wrap" Text="TextBlock"/>-->
+        
 
     </StackPanel>
 </Page>

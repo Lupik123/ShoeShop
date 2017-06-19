@@ -24,5 +24,25 @@ namespace ShoeShop
         {
             InitializeComponent();
         }
+
+        private void men_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new MenPage();
+        }
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new Homepage();
+        }
+
+        private void contact_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new ContactPage();
+        }
+
+        private void addU_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new Registration();
+        }
     }
 }
